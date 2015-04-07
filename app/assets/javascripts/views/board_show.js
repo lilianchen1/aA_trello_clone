@@ -19,7 +19,10 @@ TrelloClone.Views.BoardShow = Backbone.View.extend({
       var listView = new TrelloClone.Views.ListShow( { model: list });
       that.$("ul.list").append(listView.render().$el);
       var cards = list.cards();
+      // var ord = 0;
       cards.each(function(card) {
+        // card.set("ord", ord);
+        // ord += 1;
         var cardShow = new TrelloClone.Views.CardShow({ model: card });
         $("li.list-id" + card.get('list_id')).append(cardShow.render().$el);
       });

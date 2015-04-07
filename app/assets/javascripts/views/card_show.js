@@ -1,7 +1,12 @@
 TrelloClone.Views.CardShow = Backbone.View.extend({
   template: JST["card_show"],
   tagName: "li",
-  className: "card",
+  attributes: function() {
+    return {
+      class : "card",
+      id : this.model.get('id')
+    };
+  },
 
   events: {
     "click button.delete-card": "deleteCard"
@@ -17,5 +22,6 @@ TrelloClone.Views.CardShow = Backbone.View.extend({
     event.preventDefault();
     this.remove();
     this.model.destroy();
-  }
+  },
+
 });
